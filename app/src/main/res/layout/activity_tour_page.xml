@@ -28,6 +28,7 @@
         android:text="@string/tourPage_btnNew"
         android:layout_alignRight="@+id/textView2"
         android:layout_alignEnd="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2" />
+        android:layout_alignBottom="@+id/textView2"
+        android:onClick="addNewTours"/>
 
 </RelativeLayout>

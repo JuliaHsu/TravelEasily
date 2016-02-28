@@ -54,4 +54,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TourPage.class);
         startActivity(intent);
     }
+
+
 }

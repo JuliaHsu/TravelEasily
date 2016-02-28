@@ -6,4 +6,7 @@
     <string name="home_btnMap">Map</string>
     <string name="tourPage_title_Tour">Tours</string>
     <string name="tourPage_btnNew">+</string>
+    <string name="itinerary_title">Itinerary</string>
+    <string name="edit">Edit</string>
+    <string name="information">Information</string>
 </resources>
