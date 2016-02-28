@@ -4,4 +4,6 @@
     <string name="home_title_TravelEasily">TravelEasily </string>
     <string name="home_btnTour">Tour</string>
     <string name="home_btnMap">Map</string>
+    <string name="tourPage_title_Tour">Tours</string>
+    <string name="tourPage_btnNew">+</string>
 </resources>
