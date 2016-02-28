@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TravelEasily</string>
     <string name="action_settings">Settings</string>
+    <string name="home_title_TravelEasily">TravelEasily </string>
+    <string name="home_btnTour">Tour</string>
+    <string name="home_btnMap">Map</string>
 </resources>
