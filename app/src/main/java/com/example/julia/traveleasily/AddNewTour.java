@@ -15,6 +15,13 @@ public class AddNewTour extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_tour);
         processViews();
+
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        if(action.equals("EditItem")){
+            String destText = intent.getStringExtra("destText");
+            edtDest.setText(destText);
+        }
     }
 
 
