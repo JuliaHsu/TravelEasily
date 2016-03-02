@@ -17,14 +17,15 @@
         android:textSize="24dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView3" />
+        android:id="@+id/txvItinerary" />
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/textView3"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvItinerary"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/gridLayout">
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,6 +36,12 @@
             android:layout_row="0"
             android:layout_column="0" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtDepart"
+            android:layout_row="0"
+            android:layout_column="7" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,6 +57,7 @@
             android:id="@+id/edtDest"
             android:layout_row="1"
             android:layout_column="7" />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,32 +78,36 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/date"
+            android:text="@string/dateFrom"
             android:textSize="24dp"
-            android:id="@+id/txvDate"
+            android:id="@+id/txvDateFrom"
             android:layout_row="3"
             android:layout_column="0" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edtDate"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/edtDateFrom"
             android:layout_row="3"
             android:layout_column="7" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/time"
+            android:text="@string/dateTo"
             android:textSize="24dp"
-            android:id="@+id/txvTime"
+            android:id="@+id/txvDateTo"
             android:layout_row="4"
             android:layout_column="0" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edtTime"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/edtDateTo"
             android:layout_row="4"
             android:layout_column="7" />
 
@@ -108,12 +120,7 @@
             android:layout_row="5"
             android:layout_column="0" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edtDepart"
-            android:layout_row="0"
-            android:layout_column="7" />
+
 
         <EditText
             android:layout_width="match_parent"
@@ -121,6 +128,37 @@
             android:id="@+id/edtNote"
             android:layout_row="5"
             android:layout_column="7" />
+
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/gridLayout"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button4"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:text="@string/cancel"
+            android:textSize="24dp"
+            android:onClick="onSubmit"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnDone"
+            android:layout_row="0"
+            android:layout_column="5"
+            android:text="@string/done"
+            android:textSize="24dp"
+            android:onClick="onSubmit"/>
+
     </GridLayout>
 
 </RelativeLayout>

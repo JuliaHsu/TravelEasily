@@ -11,23 +11,38 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class TourPage extends Activity {
     private ListView tourList;
-    private String[] travelData={"Boston","New York","Washington D.C"};
+    private ArrayList<String> tourData = new ArrayList<>();
     private ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_page);
 
+        processViews();
+        processController();
 
+        tourData.add("Boston");
+        tourData.add("NYC");
+        tourData.add("Seattle");
 
         int layoutId= android.R.layout.simple_list_item_1;
-        adapter =new ArrayAdapter<String>(this,layoutId,travelData);
+        adapter =new ArrayAdapter<String>(this,layoutId,tourData);
         tourList = (ListView) findViewById(R.id.tourList);
         tourList.setAdapter(adapter);
-        processViews();
-        procesContriller();
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(resultCode==RESULT_OK){
+            String destText = data.getStringExtra("destText");
+            this.tourData.add(destText);
+            adapter.notifyDataSetChanged();
+        }
     }
 
 
@@ -36,12 +51,12 @@ public class TourPage extends Activity {
         tourList = (ListView) findViewById(R.id.tourList);
     }
 
-    private void procesContriller() {
+    private void processController() {
         AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener(){
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                Toast.makeText(TourPage.this,travelData[position],Toast.LENGTH_LONG).show();
+                Toast.makeText(TourPage.this, tourData.get(position),Toast.LENGTH_LONG).show();
 
             }
         };
@@ -72,6 +87,6 @@ public class TourPage extends Activity {
 
     public void addNewTours(View view){
         Intent intent = new Intent(this, AddNewTour.class);
-        startActivity(intent);
+        startActivityForResult(intent, 0);
     }
 }
