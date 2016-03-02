@@ -12,7 +12,9 @@
     <string name="departure">Departure</string>
     <string name="destination">Destination</string>
     <string name="airlineBus">Airline/Bus</string>
+    <string name="date">Date</string>
     <string name="time">Time</string>
+    <string name="note">Note</string>
     <string name="create">Create</string>
     <string name="cancel">Cancel</string>
     <string name="search">Search</string>

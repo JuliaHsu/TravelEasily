@@ -43,6 +43,84 @@
             android:id="@+id/txv_dest"
             android:layout_row="1"
             android:layout_column="0" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtDest"
+            android:layout_row="1"
+            android:layout_column="7" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/airlineBus"
+            android:textSize="24dp"
+            android:id="@+id/txvAirBus"
+            android:layout_row="2"
+            android:layout_column="0" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtAirBus"
+            android:layout_row="2"
+            android:layout_column="7" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:textSize="24dp"
+            android:id="@+id/txvDate"
+            android:layout_row="3"
+            android:layout_column="0" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtDate"
+            android:layout_row="3"
+            android:layout_column="7" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time"
+            android:textSize="24dp"
+            android:id="@+id/txvTime"
+            android:layout_row="4"
+            android:layout_column="0" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtTime"
+            android:layout_row="4"
+            android:layout_column="7" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note"
+            android:textSize="24dp"
+            android:id="@+id/txvNote"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtDepart"
+            android:layout_row="0"
+            android:layout_column="7" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtNote"
+            android:layout_row="5"
+            android:layout_column="7" />
     </GridLayout>
 
 </RelativeLayout>
