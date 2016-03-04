@@ -1,6 +1,8 @@
 package com.example.julia.traveleasily;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -131,10 +133,45 @@ public class TourPage extends Activity {
         Intent intent = new Intent("AddItem");
         startActivityForResult(intent, 0);
     }
+
+    public void deleteTours(View view){
+        if(selectedCount!=0){
+            AlertDialog.Builder d = new AlertDialog.Builder(this);
+            String message = getString(R.string.deleteItem);
+            d.setTitle(R.string.delete).setMessage(String.format(message, selectedCount));
+            d.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // 刪除所有已勾選的項目
+                    int index = tourAdapter.getCount() - 1;
+
+                    while (index > -1) {
+                        Itinerary itinerary = tourAdapter.get(index);
+
+                        if (itinerary.isSelected()) {
+                            tourAdapter.remove(itinerary);
+                        }
+
+                        index--;
+                    }
+
+                    // 通知資料改變
+                    tourAdapter.notifyDataSetChanged();
+                    selectedCount = 0;
+                    processMenu(null);
+                }
+
+            });
+            d.setNegativeButton(android.R.string.no, null);
+            d.show();
+        }
+    }
+
     private void processMenu(Itinerary itinerary){
         if(itinerary!=null){
-            itinerary.setSelected(!itinerary.isSeleced());
-            if(itinerary.isSeleced()){
+            itinerary.setSelected(!itinerary.isSelected());
+            if(itinerary.isSelected()){
                 selectedCount++;
             }else{
                 selectedCount--;
@@ -142,5 +179,5 @@ public class TourPage extends Activity {
         }
 
     }
-    
+
 }

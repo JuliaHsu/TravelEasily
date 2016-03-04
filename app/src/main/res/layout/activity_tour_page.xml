@@ -58,7 +58,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/btnNew"
         android:layout_alignStart="@+id/btnNew"
-        android:text="delete" />
+        android:text="delete"
+        android:onClick="deleteTours"/>
 
 
 </RelativeLayout>

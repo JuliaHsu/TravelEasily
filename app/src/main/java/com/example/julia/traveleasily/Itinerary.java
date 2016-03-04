@@ -77,7 +77,7 @@ public class Itinerary implements java.io.Serializable{
     public void setNote(String note){
         this.note = note;
     }
-    public boolean isSeleced(){
+    public boolean isSelected(){
         return selected;
     }
     public void setSelected(boolean selected){

@@ -19,5 +19,7 @@
     <string name="cancel">Cancel</string>
     <string name="search">Search</string>
     <string name="add">Add</string>
-    <string name="delete">Delete</string>
+    <string name="delete">Delete </string>
+    <string name="deleteItem">Delete %1$d tours?</string>
+
 </resources>

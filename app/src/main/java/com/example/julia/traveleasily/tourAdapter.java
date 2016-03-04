@@ -45,7 +45,7 @@ public class tourAdapter extends ArrayAdapter<Itinerary> {
         TextView destTitleView = (TextView) tourView.findViewById(R.id.txv_dest);
         destTitleView.setText(itinerary.getDestText());
 
-        selectedItem.setVisibility(itinerary.isSeleced()? View.VISIBLE : View.INVISIBLE);
+        selectedItem.setVisibility(itinerary.isSelected()? View.VISIBLE : View.INVISIBLE);
         return tourView;
 
     }
