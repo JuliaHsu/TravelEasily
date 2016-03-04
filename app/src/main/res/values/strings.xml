@@ -11,7 +11,7 @@
     <string name="information">Information</string>
     <string name="departure">Departure</string>
     <string name="destination">Destination</string>
-    <string name="airlineBus">Airline/Bus</string>
+    <string name="airlineBus">Transportation</string>
     <string name="dateFrom">Date From</string>
     <string name="dateTo">Date To</string>
     <string name="note">Note</string>
