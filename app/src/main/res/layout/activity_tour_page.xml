@@ -23,7 +23,7 @@
         android:dividerHeight="1sp"
         android:background="@color/gray_blue"
         android:divider="@color/divider_color"
-        android:layout_below="@+id/button3"
+        android:layout_below="@+id/btnNew"
         android:layout_centerHorizontal="true" />
 
 
@@ -44,11 +44,21 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/tourPage_btnNew"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
         android:onClick="addNewTours"
-        android:id="@+id/button3" />
+        android:id="@+id/btnNew"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDelete"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnNew"
+        android:layout_alignStart="@+id/btnNew"
+        android:text="delete" />
 
 
 </RelativeLayout>

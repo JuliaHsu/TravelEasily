@@ -7,15 +7,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TourPage extends Activity {
     private ListView tourList;
-    private ArrayList<String> tourData = new ArrayList<>();
-    private ArrayAdapter<String> adapter;
+    //private ArrayList<String> tourData = new ArrayList<>();
+    // private ArrayAdapter<String> adapter;
+    private tourAdapter tourAdapter;
+    private List<Itinerary> itineraries;
+    private int selectedCount =0;
+    private Button btnAdd, btnDelete;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,32 +30,35 @@ public class TourPage extends Activity {
         processViews();
         processController();
 
-        tourData.add("Boston");
-        tourData.add("NYC");
-        tourData.add("Seattle");
+        itineraries=new ArrayList<Itinerary>();
 
-        int layoutId= android.R.layout.simple_list_item_1;
-        adapter =new ArrayAdapter<String>(this,layoutId,tourData);
+        itineraries.add(new Itinerary(1,3112016,3192016,"OKC","Boston","American Airline","Spring Break"));
+
+        tourAdapter = new tourAdapter(this, R.layout.singleitem,itineraries);
         tourList = (ListView) findViewById(R.id.tourList);
-        tourList.setAdapter(adapter);
+        tourList.setAdapter(tourAdapter);
+
 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
+
         if(resultCode==RESULT_OK){
-            String destText = data.getStringExtra("destText");
+            Itinerary itinerary = (Itinerary) data.getExtras().getSerializable(
+                    "com.example.julia.traveleasily.Itinerary");
 
             if(requestCode==0){
-                this.tourData.add(destText);
-                adapter.notifyDataSetChanged();
+                itinerary.setId(itineraries.size()+1);
+                itineraries.add(itinerary);
+                tourAdapter.notifyDataSetChanged();
             }
 
             else if(requestCode==1){
                 int position = data.getIntExtra("position",-1);
                 if(position !=-1){
-                    this.tourData.set(position,destText);
-                    adapter.notifyDataSetChanged();
+                   itineraries.set(position,itinerary);
+                    tourAdapter.notifyDataSetChanged();
                 }
             }
         }
@@ -66,14 +75,34 @@ public class TourPage extends Activity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                Intent intent = new Intent("EditItem");
-                intent.putExtra("position",position);
-                intent.putExtra("destText", tourData.get(position));
-                startActivityForResult(intent,1);
+                Itinerary itinerary = tourAdapter.getItem(position);
+                if(selectedCount>0){
+                    processMenu(itinerary);
+                    tourAdapter.setIndex(position,itinerary);
+                }else{
+                    Intent intent = new Intent("EditItem");
+                    intent.putExtra("position",position);
+                    intent.putExtra("com.example.julia.traveleasily.Itinerary",itinerary);
+                    startActivityForResult(intent,1);
+                }
+
 
             }
         };
         tourList.setOnItemClickListener(itemListener);
+
+
+        AdapterView.OnItemLongClickListener itemLongClickListener = new AdapterView.OnItemLongClickListener(){
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id){
+                Itinerary itinerary = tourAdapter.getItem(position);
+                processMenu(itinerary);
+                tourAdapter.setIndex(position,itinerary);
+                return true;
+            }
+        };
+        tourList.setOnItemLongClickListener(itemLongClickListener);
     }
 
     @Override
@@ -99,7 +128,19 @@ public class TourPage extends Activity {
     }
 
     public void addNewTours(View view){
-        Intent intent = new Intent("EditItem");
+        Intent intent = new Intent("AddItem");
         startActivityForResult(intent, 0);
     }
+    private void processMenu(Itinerary itinerary){
+        if(itinerary!=null){
+            itinerary.setSelected(!itinerary.isSeleced());
+            if(itinerary.isSeleced()){
+                selectedCount++;
+            }else{
+                selectedCount--;
+            }
+        }
+
+    }
+    
 }

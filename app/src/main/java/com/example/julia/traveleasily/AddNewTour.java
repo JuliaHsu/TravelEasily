@@ -10,6 +10,7 @@ import android.widget.EditText;
 public class AddNewTour extends AppCompatActivity {
 
     private EditText edtDepart, edtDest, edtAirBus, edtDateFrom, edtDateTo, edtNote;
+    private Itinerary itinerary;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +20,17 @@ public class AddNewTour extends AppCompatActivity {
         Intent intent = getIntent();
         String action = intent.getAction();
         if(action.equals("EditItem")){
-            String destText = intent.getStringExtra("destText");
-            edtDest.setText(destText);
+           itinerary=(Itinerary) intent.getExtras().getSerializable(
+                   "com.example.julia.traveleasily.Itinerary");
+            edtDepart.setText(itinerary.getDepartText());
+            edtDest.setText(itinerary.getDestText());
+            edtAirBus.setText(itinerary.getAirBusText());
+            edtDateFrom.setText(String.valueOf(itinerary.getDateFrom()));
+            edtDateTo.setText((String.valueOf(itinerary.getDateTo())));
+            edtNote.setText(itinerary.getNote());
+
+        }else{
+            itinerary = new Itinerary();
         }
     }
 
@@ -40,17 +50,20 @@ public class AddNewTour extends AppCompatActivity {
             String departText = edtDepart.getText().toString();
             String destText = edtDest.getText().toString();
             String airBusText = edtAirBus.getText().toString();
-            String dateFromText = edtDateFrom.getText().toString();
-            String dateToText = edtDateTo.getText().toString();
+            long dateFromText = Long.parseLong(edtDateFrom.getText().toString()) ;
+            long dateToText = Long.parseLong(edtDateTo.getText().toString());
             String noteText = edtNote.getText().toString();
 
+            itinerary.setDepartText(departText);
+            itinerary.setDestText(destText);
+            itinerary.setAirBusText(airBusText);
+            itinerary.setDateFrom(dateFromText);
+            itinerary.setDateFrom(dateFromText);
+            itinerary.setDateTo(dateToText);
+            itinerary.setNote(noteText);
+
             Intent result = getIntent();
-            result.putExtra("departText",departText);
-            result.putExtra("destText",destText);
-            result.putExtra("airBusText",airBusText);
-            result.putExtra("dateFromText",dateFromText);
-            result.putExtra("dateToText",dateToText);
-            result.putExtra("noteText",noteText);
+            result.putExtra("com.example.julia.traveleasily.Itinerary",itinerary);
 
             setResult(Activity.RESULT_OK,result);
         }
