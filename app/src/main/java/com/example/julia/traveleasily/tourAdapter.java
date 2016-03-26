@@ -51,7 +51,7 @@ public class tourAdapter extends ArrayAdapter<Itinerary> {
     }
 
     public void setIndex(int index, Itinerary itinerary){
-        if(index>-0 && index< itineraries.size() );
+        if(index>=0 && index< itineraries.size() );
         itineraries.set(index,itinerary);
         notifyDataSetChanged();
     }

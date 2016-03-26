@@ -143,9 +143,10 @@ public class TourPage extends Activity {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // 刪除所有已勾選的項目
+                    // delete the tours you selected
+                    //Get the index from tourAdapter
                     int index = tourAdapter.getCount() - 1;
-
+                    //keep tracking all of the tours is selecting or not
                     while (index > -1) {
                         Itinerary itinerary = tourAdapter.get(index);
 
@@ -156,7 +157,7 @@ public class TourPage extends Activity {
                         index--;
                     }
 
-                    // 通知資料改變
+                    // inform the data is changed
                     tourAdapter.notifyDataSetChanged();
                     selectedCount = 0;
                     processMenu(null);

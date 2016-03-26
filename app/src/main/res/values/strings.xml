@@ -21,5 +21,11 @@
     <string name="add">Add</string>
     <string name="delete">Delete </string>
     <string name="deleteItem">Delete %1$d tours?</string>
-
+    <string name="addExpense">+Expense</string>
+    <string name="addIncome">+Income</string>
+    <string name="item">Item</string>
+    <string name="amount">Amount</string>
+    <string name="category">Category</string>
+    <string name="date">Date</string>
+    <string name="budget">Budget</string>
 </resources>

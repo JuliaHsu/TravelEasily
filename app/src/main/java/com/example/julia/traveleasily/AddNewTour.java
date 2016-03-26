@@ -71,5 +71,10 @@ public class AddNewTour extends AppCompatActivity {
         finish();
     }
 
+    public void goToBudget(View view){
+        Intent intent = new Intent(this, budgetPage.class);
+        startActivity(intent);
+    }
+
 
 }

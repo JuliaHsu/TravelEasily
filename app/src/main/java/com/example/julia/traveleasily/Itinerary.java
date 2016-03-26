@@ -5,7 +5,6 @@ package com.example.julia.traveleasily;
  */
 public class Itinerary implements java.io.Serializable{
     private long id;
-    private long createDataDate;
     private long dateFrom;
     private long dateTo;
     private String departText;
