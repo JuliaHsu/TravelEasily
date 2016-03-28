@@ -73,6 +73,7 @@ public class AddNewTour extends AppCompatActivity {
 
     public void goToBudget(View view){
         Intent intent = new Intent(this, budgetPage.class);
+        intent.putExtra("TourId",itinerary.getId());
         startActivity(intent);
     }
 

@@ -4,6 +4,7 @@ package com.example.julia.traveleasily;
  * Created by Julia on 2016/3/4.
  */
 public class Budget implements java.io.Serializable  {
+    private long tourId;
     private int id;
     private int totalIncome,totalExpense;
     private String item;
@@ -11,9 +12,11 @@ public class Budget implements java.io.Serializable  {
     private String category;
     private long date;
     private String note;
+    private boolean selected;
 
 
     public Budget(){
+        tourId =1;
         totalExpense=0;
         totalIncome=0;
         item="";
@@ -23,8 +26,9 @@ public class Budget implements java.io.Serializable  {
         note="";
     }
 
-    public Budget(int id,int totalIncome,int totalExpense,String item,
+    public Budget(long tourId,int id,int totalIncome,int totalExpense,String item,
                   int amount,String category,long date, String note){
+        this.tourId=tourId;
         this.id=id;
         this.totalIncome=totalIncome;
         this.totalExpense=totalExpense;
@@ -35,7 +39,12 @@ public class Budget implements java.io.Serializable  {
         this.note=note;
     }
 
-
+    public long getTourId(){
+        return tourId;
+    }
+    public void setTourId(long tourId){
+        this.tourId=tourId;
+    }
     public int getId(){
         return id;
     }
@@ -83,6 +92,12 @@ public class Budget implements java.io.Serializable  {
     }
     public void setNote(String note){
         this.note=note;
+    }
+    public boolean isSelected(){
+        return selected;
+    }
+    public void setSelected(boolean selected){
+        this.selected = selected;
     }
 
 }
