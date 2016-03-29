@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,10 @@ public class budgetPage extends Activity {
     private BudgetAdapter budgetAdapter;
     private List<Budget> budgets;
     private int selectedCount =0;
+    private int expense=0;
+    private TextView txvExpense;
+
+     
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,19 +30,20 @@ public class budgetPage extends Activity {
         processViews();
 
         processController();
-        //Intent intent = getIntent();
+        Intent intent = getIntent();
         budgets=new ArrayList<Budget>();
 
 
-        budgets.add(new Budget(1,1,0,0,"Flight",100,"Transportation",3152016,"Spring Break"));
+        //budgets.add(new Budget(1,1,0,0,"Flight",100,"Transportation",3152016,"Spring Break"));
         //budgets.add(new Budget(2,1,0,0,"Flight",100,"r",3152016,"Spring Break"));
-      // long tourId = intent.getLongExtra("TourId",1L);
-        //System.out.println(tourId);
+        long tourId = intent.getLongExtra("TourId",1L);
+        System.out.println(tourId);
 
 
             budgetAdapter = new BudgetAdapter(this, R.layout.budget_item,budgets);
             budgetList = (ListView) findViewById(R.id.budgestListView);
             budgetList.setAdapter(budgetAdapter);
+            setExpense();
 
 
 
@@ -53,6 +59,7 @@ public class budgetPage extends Activity {
             Budget budget = (Budget) data.getExtras().getSerializable(
                     "com.example.julia.traveleasily.Budget");
 
+
             if(requestCode==0){
                 budget.setId(budgets.size() + 1);
                 budgets.add(budget);
@@ -66,6 +73,8 @@ public class budgetPage extends Activity {
                     budgetAdapter.notifyDataSetChanged();
                 }
             }
+            expense = expense +budget.getAmount();
+            setExpense();
         }
     }
 
@@ -106,6 +115,8 @@ public class budgetPage extends Activity {
 
     private void processViews() {
         budgetList = (ListView) findViewById(R.id.budgestListView);
+        txvExpense = (TextView) findViewById(R.id.txvExpenseRes);
+
 
     }
 
@@ -135,6 +146,19 @@ public class budgetPage extends Activity {
         Intent intent = new Intent("AddBudget");
         startActivityForResult(intent, 0);
     }
+
+    public void setExpense(){
+        txvExpense.setText(Integer.toString(expense));
+
+    }
+
+    public void budgetDOne(View view){
+        if(view.getId()==R.id.btnBudgetDone){
+           finish();
+        }
+    }
+
+
 
     private void processMenu(Budget budget){
         if(budget!=null){
