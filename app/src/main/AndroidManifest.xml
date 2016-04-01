@@ -32,17 +32,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".budgetPage"/>
-
+        <activity android:name=".budgetPage" />
         <activity
             android:name=".AddBudget"
-            android:theme ="@style/AppTheme">
+            android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="AddBudget"/>
-                <action android:name = "EditBudget"/>
-                <category android:name ="android.intent.category.DEFAULT"/>
+                <action android:name="AddBudget" />
+                <action android:name="EditBudget" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".placesPage"></activity>
     </application>
 
 </manifest>

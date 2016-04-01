@@ -1,6 +1,8 @@
 package com.example.julia.traveleasily;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -158,6 +160,47 @@ public class budgetPage extends Activity {
         }
     }
 
+    public void deleteBudget(View view){
+        if(selectedCount!=0){
+            AlertDialog.Builder d = new AlertDialog.Builder(this);
+            String message = getString(R.string.deleteBudget);
+            d.setTitle(R.string.delete).setMessage(String.format(message, selectedCount));
+            d.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // delete the tours you selected
+                    //Get the index from tourAdapter
+                    int index = budgetAdapter.getCount() - 1;
+                    //keep tracking all of the tours is selecting or not
+                    while (index > -1) {
+                        Budget budget = budgetAdapter.get(index);
+
+
+                        if (budget.isSelected()) {
+                            expense = expense - budget.getAmount();
+                            System.out.println(expense);
+
+                            budgetAdapter.remove(budget);
+                            setExpense();
+                        }
+
+                        index--;
+                    }
+
+                    // inform the data is changed
+                    budgetAdapter.notifyDataSetChanged();
+                    selectedCount = 0;
+                    processMenu(null);
+                }
+
+            });
+
+            d.setNegativeButton(android.R.string.no, null);
+            d.show();
+
+        }
+    }
 
 
     private void processMenu(Budget budget){

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -39,10 +40,12 @@ public class BudgetAdapter extends ArrayAdapter<Budget> {
             budgetView = (LinearLayout) convertView;
         }
 
-        TextView categoryView = (TextView) budgetView.findViewById(R.id.txv_budgetCategory);
+        ImageView selectedItem = (ImageView) budgetView.findViewById(R.id.selectedItem);
+        TextView categoryView = (TextView) budgetView.findViewById(R.id.txv_BudgetCategory);
         categoryView.setText(budget.getCategory());
-        TextView amountView = (TextView) budgetView.findViewById(R.id.txv_budgetAmount);
+        TextView amountView = (TextView) budgetView.findViewById(R.id.txv_BudgetAmount);
         amountView.setText(String.valueOf(budget.getAmount()));
+        selectedItem.setVisibility(budget.isSelected() ? View.VISIBLE : View.INVISIBLE);
 
         return budgetView;
 
