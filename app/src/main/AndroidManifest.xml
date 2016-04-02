@@ -43,7 +43,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".placesPage"></activity>
+        <activity android:name=".placesPage" />
+        <activity android:name=".IndexPage" />
     </application>
 
 </manifest>

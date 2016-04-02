@@ -78,6 +78,22 @@ public class TourPage extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 Itinerary itinerary = tourAdapter.getItem(position);
+                Intent intent = new Intent(TourPage.this,IndexPage.class);
+                intent.putExtra("tourId", id);
+                //System.out.println(itinerary.getDestText());
+                intent.putExtra("com.example.julia.traveleasily.Itinerary",itinerary);
+                startActivityForResult(intent,1);
+
+            }
+        };
+        tourList.setOnItemClickListener(itemListener);
+
+        /*
+        AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                Itinerary itinerary = tourAdapter.getItem(position);
                 if(selectedCount>0){
                     processMenu(itinerary);
                     tourAdapter.setIndex(position,itinerary);
@@ -91,7 +107,7 @@ public class TourPage extends Activity {
 
             }
         };
-        tourList.setOnItemClickListener(itemListener);
+        tourList.setOnItemClickListener(itemListener);*/
 
 
         AdapterView.OnItemLongClickListener itemLongClickListener = new AdapterView.OnItemLongClickListener(){
@@ -180,5 +196,7 @@ public class TourPage extends Activity {
         }
 
     }
+
+
 
 }

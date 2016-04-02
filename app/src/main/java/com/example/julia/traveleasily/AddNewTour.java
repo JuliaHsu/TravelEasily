@@ -17,6 +17,7 @@ public class AddNewTour extends AppCompatActivity {
         setContentView(R.layout.activity_add_new_tour);
         processViews();
 
+
         Intent intent = getIntent();
         String action = intent.getAction();
         if(action.equals("EditItem")){
