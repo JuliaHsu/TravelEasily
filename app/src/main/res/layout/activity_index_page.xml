@@ -171,7 +171,7 @@
         android:src="@drawable/btn_budget"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:onClick="goToBudget"/>
+        android:onClick="viewBudget"/>
 
 
 </RelativeLayout>

@@ -20,7 +20,8 @@ public class budgetPage extends Activity {
     private BudgetAdapter budgetAdapter;
     private List<Budget> budgets;
     private int selectedCount =0;
-    private int expense=0;
+    private double expense=0;
+    private  Budget budget;
     private TextView txvExpense;
 
      
@@ -33,13 +34,16 @@ public class budgetPage extends Activity {
 
         processController();
         Intent intent = getIntent();
+        budget = (Budget) intent.getExtras().getSerializable(
+                "com.example.julia.traveleasily.Budget");
+
         budgets=new ArrayList<Budget>();
 
 
         //budgets.add(new Budget(1,1,0,0,"Flight",100,"Transportation",3152016,"Spring Break"));
         //budgets.add(new Budget(2,1,0,0,"Flight",100,"r",3152016,"Spring Break"));
         long tourId = intent.getLongExtra("TourId",1L);
-        System.out.println(tourId);
+        //System.out.println(tourId);
 
 
             budgetAdapter = new BudgetAdapter(this, R.layout.budget_item,budgets);
@@ -66,13 +70,16 @@ public class budgetPage extends Activity {
                 budget.setId(budgets.size() + 1);
                 budgets.add(budget);
                 budgetAdapter.notifyDataSetChanged();
+
             }
             else if(requestCode==1){
                 int position = data.getIntExtra("position",-1);
                 if(position !=-1){
 
-                    budgets.set(position,budget);
+                    budgets.set(position, budget);
                     budgetAdapter.notifyDataSetChanged();
+
+
                 }
             }
             expense = expense +budget.getAmount();
@@ -91,6 +98,7 @@ public class budgetPage extends Activity {
                     budgetAdapter.setIndex(position,budget);
                 }else{
                     Intent intent = new Intent("EditBudget");
+                    expense=expense-budget.getAmount();
                     intent.putExtra("position",position);
                     intent.putExtra("com.example.julia.traveleasily.Budget",budget);
                     startActivityForResult(intent,1);
@@ -150,12 +158,14 @@ public class budgetPage extends Activity {
     }
 
     public void setExpense(){
-        txvExpense.setText(Integer.toString(expense));
+        txvExpense.setText(Double.toString(expense));
 
     }
 
     public void budgetDOne(View view){
         if(view.getId()==R.id.btnBudgetDone){
+
+
            finish();
         }
     }

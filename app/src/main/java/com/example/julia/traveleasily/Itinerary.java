@@ -22,8 +22,8 @@ public class Itinerary implements java.io.Serializable{
 
     public Itinerary(long id,long dateFrom,long dateTo,String departText,
                      String destText,String AirBusText,String note){
-        this.id = id;
 
+        this.id = id;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.departText = departText;
@@ -33,13 +33,13 @@ public class Itinerary implements java.io.Serializable{
 
     }
 
+
     public long getId(){
         return id;
     }
     public void setId(long id){
-        this.id = id;
+        this.id= id;
     }
-
     public long getDateFrom(){
         return dateFrom;
     }

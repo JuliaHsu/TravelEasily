@@ -8,7 +8,7 @@ public class Budget implements java.io.Serializable  {
     private int id;
     private int totalIncome,totalExpense;
     private String item;
-    private int amount;
+    private double amount;
     private String category;
     private long date;
     private String note;
@@ -27,7 +27,7 @@ public class Budget implements java.io.Serializable  {
     }
 
     public Budget(long tourId,int id,int totalIncome,int totalExpense,String item,
-                  int amount,String category,long date, String note){
+                  double amount,String category,long date, String note){
         this.tourId=tourId;
         this.id=id;
         this.totalIncome=totalIncome;
@@ -69,10 +69,10 @@ public class Budget implements java.io.Serializable  {
     public void setItem(String item){
         this.item=item;
     }
-    public int getAmount(){
+    public double getAmount(){
         return amount;
     }
-    public void setAmount(int amount){
+    public void setAmount(double amount){
         this.amount= amount;
     }
     public String getCategory(){

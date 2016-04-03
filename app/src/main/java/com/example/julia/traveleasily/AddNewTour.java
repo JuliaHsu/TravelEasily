@@ -11,6 +11,7 @@ public class AddNewTour extends AppCompatActivity {
 
     private EditText edtDepart, edtDest, edtAirBus, edtDateFrom, edtDateTo, edtNote;
     private Itinerary itinerary;
+    private int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class AddNewTour extends AppCompatActivity {
         if(action.equals("EditItem")){
            itinerary=(Itinerary) intent.getExtras().getSerializable(
                    "com.example.julia.traveleasily.Itinerary");
+            position =intent.getIntExtra("position",-1);
             edtDepart.setText(itinerary.getDepartText());
             edtDest.setText(itinerary.getDestText());
             edtAirBus.setText(itinerary.getAirBusText());
@@ -65,6 +67,9 @@ public class AddNewTour extends AppCompatActivity {
 
             Intent result = getIntent();
             result.putExtra("com.example.julia.traveleasily.Itinerary",itinerary);
+            result.putExtra("position",position);
+            //System.out.println("testIntent "+itinerary.getDestText());
+
 
             setResult(Activity.RESULT_OK,result);
         }
@@ -72,11 +77,7 @@ public class AddNewTour extends AppCompatActivity {
         finish();
     }
 
-    public void goToBudget(View view){
-        Intent intent = new Intent(this, budgetPage.class);
-        intent.putExtra("TourId",itinerary.getId());
-        startActivity(intent);
-    }
+
 
 
 }

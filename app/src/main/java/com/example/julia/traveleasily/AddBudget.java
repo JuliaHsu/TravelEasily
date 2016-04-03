@@ -44,10 +44,10 @@ public class AddBudget extends AppCompatActivity {
         if(action.equals("EditBudget")){
             budget=(Budget) intent.getExtras().getSerializable(
                     "com.example.julia.traveleasily.Budget");
-            System.out.println(budget.getCategory());
+            //System.out.println(budget.getCategory());
 
             edtItem.setText(budget.getItem());
-            edtAmount.setText(Integer.toString(budget.getAmount()));
+            edtAmount.setText(Double.toString(budget.getAmount()));
             budgetCatSpinner.setAdapter(categoryList);
             edtDate.setText(String.valueOf(budget.getDate()));
             edtNote.setText(budget.getNote());
@@ -77,7 +77,7 @@ public class AddBudget extends AppCompatActivity {
         if(view.getId()==R.id.btnBudgetDone){
 
             String item = edtItem.getText().toString();
-            int amount = Integer.parseInt(edtAmount.getText().toString());
+            double amount = Double.parseDouble(edtAmount.getText().toString());
 
             long date = Long.parseLong(edtDate.getText().toString());
             String note = edtNote.getText().toString();
