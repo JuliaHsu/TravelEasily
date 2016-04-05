@@ -31,4 +31,11 @@
     <string name="budget">Budget</string>
     <string name="budgetBalance">Balance</string>
     <string name="places">Places</string>
+
+
+    <string name="placeName">Place:</string>
+    <string name="address">Address:</string>
+    <string name="phoneNumber">Phone:</string>
+    <string name="website">Website:</string>
+    <string name="photo">Photo:</string>
 </resources>

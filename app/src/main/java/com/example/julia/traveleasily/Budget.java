@@ -16,7 +16,7 @@ public class Budget implements java.io.Serializable  {
 
 
     public Budget(){
-        tourId =1;
+        tourId =0;
         totalExpense=0;
         totalIncome=0;
         item="";

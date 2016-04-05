@@ -15,7 +15,7 @@ public class IndexPage extends Activity {
     private Itinerary itinerary;
     private Budget budget;
     private TourPage tourPage;
-
+    private Place place;
     private DBItem dbItem;
     private int position;
 
@@ -102,6 +102,12 @@ public class IndexPage extends Activity {
 
 
         //intent.putExtra("TourId",itinerary.getId());
+        startActivity(intent);
+    }
+
+    public void viewPlaces(View view){
+        Intent intent = new Intent(this,placesPage.class);
+        intent.putExtra("com.example.julia.traveleasily..Place",place);
         startActivity(intent);
     }
 }

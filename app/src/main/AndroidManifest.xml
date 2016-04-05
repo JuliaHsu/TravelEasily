@@ -45,6 +45,7 @@
         </activity>
         <activity android:name=".placesPage" />
         <activity android:name=".IndexPage" />
+        <activity android:name=".AddPlace"></activity>
     </application>
 
 </manifest>

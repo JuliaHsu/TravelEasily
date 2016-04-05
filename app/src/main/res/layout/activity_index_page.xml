@@ -159,19 +159,31 @@
         android:layout_column="4"
         android:src="@drawable/btn_itinerary"
         android:onClick="viewItinerary"
-        android:layout_alignTop="@+id/iBtnBudget"
         android:layout_toRightOf="@+id/tableLayout"
-        android:layout_toEndOf="@+id/tableLayout" />
+        android:layout_toEndOf="@+id/tableLayout"
+        android:layout_centerVertical="true" />
+
+
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/iBtnBudget"
+        android:id="@+id/iBtnPlaces"
         android:layout_column="10"
+        android:src="@drawable/lov_loc"
+        android:layout_alignTop="@+id/iBtnItinerary"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_column="16"
         android:src="@drawable/btn_budget"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="viewBudget"/>
+        android:onClick="viewBudget"
+        android:layout_alignTop="@+id/iBtnPlaces"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

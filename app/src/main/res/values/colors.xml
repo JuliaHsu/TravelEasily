@@ -7,11 +7,13 @@
     <color name="purple">#ccccff</color>
     <color name="gray">#b9c5c8</color>
     <color name="gray_blue">#d5e7f4</color>
-    <color name="divider_color">#b9c5c8 </color>
+    <color name="divider_color">#b9c5c8</color>
     <color name="white">#ffffff</color>
     <color name="lightGreen">#9fffd5</color>
     <color name="black">#000000</color>
     <color name="dark_gray">#666666</color>
-    <color name="textForBudget">#536271 </color>
+    <color name="textForBudget">#536271</color>
     <color name="budgetCategory">#9bbabf</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>
