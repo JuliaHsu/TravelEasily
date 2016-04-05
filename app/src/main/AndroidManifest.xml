@@ -45,7 +45,14 @@
         </activity>
         <activity android:name=".placesPage" />
         <activity android:name=".IndexPage" />
-        <activity android:name=".AddPlace"></activity>
+        <activity android:name=".AddPlace">
+            <intent-filter>
+                <action android:name="AddPlace" />
+                <action android:name="EditPlace" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

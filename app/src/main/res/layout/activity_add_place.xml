@@ -117,4 +117,14 @@
         android:id="@+id/edtPlacePhoto"
         android:layout_below="@+id/gridLayout3"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/done"
+        android:id="@+id/btnPlaceDone"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/edtPlacePhoto"
+        android:layout_alignEnd="@+id/edtPlacePhoto"
+        android:onClick="onSubmitPlace"/>
 </RelativeLayout>

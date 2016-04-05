@@ -172,18 +172,20 @@
         android:layout_column="10"
         android:src="@drawable/lov_loc"
         android:layout_alignTop="@+id/iBtnItinerary"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="viewPlaces"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/ibtnBudget"
         android:layout_column="16"
         android:src="@drawable/btn_budget"
         android:onClick="viewBudget"
         android:layout_alignTop="@+id/iBtnPlaces"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        />
 
 
 </RelativeLayout>

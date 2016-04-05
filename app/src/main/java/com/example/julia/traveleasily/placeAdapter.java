@@ -40,6 +40,7 @@ public class placeAdapter extends ArrayAdapter<Place> {
         }
         ImageView placePhoto=(ImageView) placeView.findViewById(R.id.imgPlace);
         TextView placeName=(TextView) placeView.findViewById(R.id.txv_placesName);
+        placeName.setText(place.getPlaceName());
         return placeView;
     }
 

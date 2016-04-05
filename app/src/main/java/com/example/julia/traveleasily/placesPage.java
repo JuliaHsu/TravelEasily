@@ -29,7 +29,6 @@ public class placesPage extends Activity {
         place = (Place) intent.getExtras().getSerializable("com.example.julia.traveleasily.Place");
         places = new ArrayList<Place>();
         placeAdapter= new placeAdapter(this,R.layout.place_item,places);
-        placesList=(ListView) findViewById(R.id.placesList);
         placesList.setAdapter(placeAdapter);
 
     }
@@ -99,5 +98,11 @@ public class placesPage extends Activity {
             }
         }
     }
+
+    public void addNewPlace(View view){
+        Intent intent = new Intent("AddPlace");
+        startActivityForResult(intent, 0);
+    }
+
 
 }

@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/tourPage_btnNew"
+        android:text="@string/createNew"
         android:onClick="addNewTours"
         android:id="@+id/btnNew"
         android:layout_alignBottom="@+id/textView2"
